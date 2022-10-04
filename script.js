@@ -28,8 +28,10 @@ document.querySelector('.check').addEventListener('click', function () {
         return;
     }
     else if (userGuess !== randomNumber && currScore >= 0) {
-        document.querySelector('.message').textContent = "📉 Too low!";
-        document.querySelector('.message').textContent = "📉 Too high!"
+        if (userGuess > randomNumber)
+            document.querySelector('.message').textContent = "📉 Too low!";
+        else
+            document.querySelector('.message').textContent = "📉 Too high!"
         document.querySelector('.label-score').textContent = `💯 Score: ${currScore}`;
     }
     else {
