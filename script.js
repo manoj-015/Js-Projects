@@ -3,6 +3,7 @@ let highScore = 0;
 let currScore = 20;
 let randomNumber = Math.round(Math.random() * 100);
 randomNumber = randomNumber % 21;
+console.log(randomNumber);
 
 // if user want to game again
 document.querySelector('.again').addEventListener('click', function () {
@@ -28,10 +29,13 @@ document.querySelector('.check').addEventListener('click', function () {
         return;
     }
     else if (userGuess !== randomNumber && currScore >= 0) {
-        if (userGuess > randomNumber)
+        console.log(userGuess, typeof userGuess);
+        console.log(randomNumber, typeof randomNumber);
+        if (userGuess < randomNumber) {
             document.querySelector('.message').textContent = "📉 Too low!";
-        else
-            document.querySelector('.message').textContent = "📉 Too high!"
+        } else {
+            document.querySelector('.message').textContent = "📈 Too high!"
+        }
         document.querySelector('.label-score').textContent = `💯 Score: ${currScore}`;
     }
     else {
